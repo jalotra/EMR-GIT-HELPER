@@ -65,6 +65,33 @@ bool test2(int verdict){
     return true;
 }
 
+bool test3(int verdict){
+    int rows1 = 3, rows2 = 3, cols1 = 2, cols2 = 3; 
+    vector<vector<int>>a = {{1,2,3}, {4,5,6}, {7,8,9}};
+    vector<vector<int>>b = {{1,0}, {0,1}, {0,0}};
+    vector<vector<int>>res = {};
+    vector<vector<int>>ans = matrix_mul(a, b, rows1, cols1, rows2, cols2);
+    if(res.size() != ans.size()){
+        return false;
+    }
+    for(int i = 0; i < (int)res.size(); i++){
+        for(int j = 0; j < (int)res[0].size(); j++){
+            if(res[i][j] != ans[i][j]){
+                return false;
+            }
+        }
+    }
+    if(verdict){
+        cout << "INPUT MATRIX 1 : " << endl;
+        see_output(a);
+        cout << "INPUT MATRIX 2 : " << endl;
+        see_output(b);
+        cout << "OUTPUT MATRIX : " << endl;
+        see_output(ans);
+    }
+    return true;
+}
+
 
 int main(){
     bool failed = false;
@@ -84,9 +111,17 @@ int main(){
         cerr << "TEST 2 PASSED\n";
         test2(true);
     }
+    bool three = test3(false);
+    if(!three){
+        failed = true;
+        cerr << "TEST 3 FAILED\n" << endl;
+    }else{
+        cerr << "TEST 3 PASSED\n";
+        test2(true);
+    }
 
     if(!failed){
-        cerr << "BOTH TEST CASES PASSED, HURRAY!\n" << endl;
+        cerr << "ALL THREE TEST CASES PASSED, HURRAY!\n" << endl;
     }
 
 
