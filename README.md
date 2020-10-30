@@ -1,4 +1,4 @@
-# EMR-GIT-HELPER
+# EMR-GIT-HOMEWORK
 
 ## What is the objective of this Homework ? 
 1. To practice all the Git Commands that you have learned till now.
