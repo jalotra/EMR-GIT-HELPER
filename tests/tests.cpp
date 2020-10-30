@@ -2,11 +2,15 @@
 using namespace std;
 
 void see_output(vector<vector<int>>a){
+    if(a.size() ==0){
+        cerr << "Matrix Multiplication is not possible !\n";
+    }
     for(int i = 0; i < (int)a.size(); i++){
         for(int j = 0; j < (int)a[0].size(); j++){
             cout << a[i][j] << " ";
         }cout << endl;
     }
+    cout << endl;
 }
 
 
@@ -101,7 +105,7 @@ int main(){
         cerr << "TEST 1 FAILED\n" << endl;
     }else{
         cerr << "TEST 1 PASSED\n";  
-        test2(true);
+        test1(true);
     }
     bool two = test2(false);
     if(!two){
@@ -117,7 +121,7 @@ int main(){
         cerr << "TEST 3 FAILED\n" << endl;
     }else{
         cerr << "TEST 3 PASSED\n";
-        test2(true);
+        test3(true);
     }
 
     if(!failed){
